@@ -1,7 +1,11 @@
 one two                                               four         ten		
-<<<<<<< HEAD
+
+asdsa asdsadads  sa                     ddsd             d         ss  2s  s
+=======
+
 asdsa asdsadads  sa                     ddsd             d         ss   2
 =======
 asdsa asdsadads  sa                     ddsd             d         ss  2
->>>>>>> 4c370502d4d4f51df6908ec36c50085bb2b8a924
+
    asd
+
