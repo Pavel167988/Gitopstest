@@ -7,7 +7,7 @@ on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Test changed-files
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -17,11 +17,10 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v34
 
-      - name: List all changed files
+      - name: tabs in changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-            echo "Quantity tabs in ${file} is $(grep -P \t ${file})" >> report.log 2>&1
+          echo "Quantity tabs in ${file} is $(grep -P \t ${file})" >> report.log 2>&1
           done
       - name: Upload report
         uses: actions/upload-artifact@v2
