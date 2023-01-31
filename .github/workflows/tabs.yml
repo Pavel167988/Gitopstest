@@ -23,7 +23,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git reset --hard HEAD^
+          git reset --hard HEAD-1
 
 
 
