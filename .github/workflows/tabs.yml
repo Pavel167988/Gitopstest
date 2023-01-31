@@ -23,8 +23,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git update-ref -d HEAD
-          git reset --hard HEAD-1
+          git rev-parse master >> hash.txt
+          git reset --hard -- hash.txt
 
 
 
