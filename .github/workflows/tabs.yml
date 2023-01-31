@@ -3,8 +3,6 @@ name: Last commit
 
 on: [workflow_dispatch]
 
-env:
-  report: hash.txt
    
 jobs:
   push_to_registries:
@@ -23,8 +21,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git rev-parse master >> hash.txt
-          git reset --hard -- hash.txt
+          git reset --soft HARD^
 
 
 
