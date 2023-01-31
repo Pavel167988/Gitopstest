@@ -2,6 +2,9 @@ name: Last commit
 
 
 on: [workflow_dispatch]
+
+env:
+  hash: Monday
        
 jobs:
   push_to_registries:
@@ -21,7 +24,8 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.email "you@example.com"
-          git reset --hard HEAD^
+          git rev-parse master >> ${{ env.hash }}
+
 
           
       - name: Push changes
