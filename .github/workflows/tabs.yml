@@ -24,6 +24,7 @@ jobs:
           git config --global user.email "you@example.com"
           git rev-parse master >> hash.txt
           cat hash.txt
+          git reset --hard cat hash.txt
 
 
           
