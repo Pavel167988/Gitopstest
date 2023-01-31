@@ -22,8 +22,8 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.email "you@example.com"
-          git rev-parse master >> $hash
-          cat $hash
+          git rev-parse master >> hash.txt
+          echo "(cat hash.txt)"
 
 
 
