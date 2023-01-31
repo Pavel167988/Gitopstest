@@ -3,9 +3,7 @@ name: Last commit
 
 on: [workflow_dispatch]
 
-env:
-  hash: Monday
-       
+   
 jobs:
   push_to_registries:
     name: Remove last commit
@@ -24,7 +22,8 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.email "you@example.com"
-          git rev-parse master >> ${{ env.hash }}
+          git rev-parse master >> hash.txt
+          cat hash.txt
 
 
           
