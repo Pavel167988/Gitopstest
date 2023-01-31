@@ -20,6 +20,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git commit --allow-empty -n -m "Initial commit"
           git reset --hard HEAD^
           git add --all
