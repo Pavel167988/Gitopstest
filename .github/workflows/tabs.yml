@@ -23,7 +23,7 @@ jobs:
         run: |
           git config --global user.email "you@example.com"
           git rev-parse master >> hash.txt
-          echo "(cat hash.txt)"
+          echo "$(cat hash.txt)"
 
 
 
