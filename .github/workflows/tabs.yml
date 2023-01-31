@@ -1,28 +1,34 @@
-name: tabs in files
+name: Last commit
 
-on: pull_request
 
-  
-
+on: [workflow_dispatch]
+       
 jobs:
-  build:
+  push_to_registries:
+    name: Remove last commit
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      repository-projects: write
+      packages: write 
+    steps:             
+                    
+      - name: Check out the repo
+        uses: actions/checkout@v2      
+                
+          
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v34
-
-      - name: tabs in changed files
+      - name: Commit changes
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-          echo "Quantity tabs in ${file} is `grep -o '\t' $file | wc -l`" >> report.log 2>&1
-          done
-      - name: Upload report
-        uses: actions/upload-artifact@v2
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git log
+          git reset --hard HEAD~1
+          git add --all
+          git commit -m "Removed last commit"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          path: report.log
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master     
