@@ -25,7 +25,7 @@ jobs:
         run: |
           git config --global user.email "you@example.com"
           git rev-parse master >> ${{ env.report }}
-          git reset --hard ${{ env.report }}
+          cat ${{ env.report }}
 
 
 
