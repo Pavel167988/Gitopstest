@@ -23,9 +23,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.email "you@example.com"
-          git rev-parse master >> ${{ env.report }}
-          cat ${{ env.report }}
+          git reset --hard HEAD
 
 
 
