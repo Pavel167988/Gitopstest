@@ -20,9 +20,6 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git log
           git reset --hard HEAD~1
           git add --all
           git commit -m "Removed last commit"
