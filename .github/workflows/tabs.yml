@@ -3,6 +3,8 @@ name: Last commit
 
 on: [workflow_dispatch]
 
+env:
+  report: hash.txt
    
 jobs:
   push_to_registries:
@@ -22,8 +24,8 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.email "you@example.com"
-          git rev-parse master >> hash.txt
-          echo "$(git reset --hard echo cat hash.txt)"
+          git rev-parse master >> ${{ env.report }}
+          git reset --hard ${{ env.report }}
 
 
 
