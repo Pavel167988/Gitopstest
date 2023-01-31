@@ -21,7 +21,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git reset --soft HARD^
+          git reset HEAD --soft -- /usr/bin/git log -1 --format='%H'
 
 
 
